@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心理学实验：叙事疗法的魔力</title><!-- 初始化html -->
+    <link href="./jspsych/jspsych.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./style.css"> <!-- 初始化CSS文件 -->
+    <script src="./jspsych/jspsych.js"></script>
+    <script src="./jspsych/plugin-html-keyboard-response.js"></script>
+    <script src="./jspsych/plugin-animation.js"></script><!-- 初始化jspsych -->
+</head>
+<body></body>
+<script>
+     const jsPsych = initJsPsych();
+
+     let welcome = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p id = welcome><span style = "color:red;font-size:50px;align-items: center;">欢迎参加本次心理学实验</span><br><br><br><br><br><br><br>
+                 本实验的目的是想让您了解和体验一种心理咨询的方法：叙事疗法<br><br>请保证周围环境安静并用心思考作答,相信您会藉此体会到叙事疗法的乐趣。<br><br><br><br><br><br><br><br><br><br>
+                 您的数据将会被上传到安全保密的实验数据库，仅作科研用途<br>
+                 感谢您参与我们的实验，如果您准备好了,请按<span style ="color: red">任意键</span>开始实验吧!</p>
+                  `
+     }
+
+     let trial = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: function() {
+         return '<p id ="stim">gekailiang</p>';
+     }
+    }
+    
+     jsPsych.run([welcome,trial]);
+</script>
+</html>
