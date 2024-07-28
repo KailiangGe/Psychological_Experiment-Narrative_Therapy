@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./style.css"> <!-- 初始化CSS文件 -->
     <script src="./jspsych/jspsych.js"></script>
     <script src="./jspsych/plugin-html-keyboard-response.js"></script>
+    <script src="./jspsych/plugin-survey-text.js"></script>
+    <script src="./jspsych/plugin-survey-multi-choice.js"></script>
     <script src="./jspsych/plugin-animation.js"></script><!-- 初始化jspsych -->
 </head>
 <body></body>
@@ -17,9 +19,52 @@
      let welcome = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `<p id = welcome><span style = "color:red;font-size:50px;align-items: center;">欢迎参加本次心理学实验</span><br><br><br><br><br><br><br>
-                 本实验的目的是想让您了解和体验一种心理咨询的方法：叙事疗法<br><br>请保证周围环境安静并用心思考作答,相信您会藉此体会到叙事疗法的乐趣。<br><br><br><br><br><br><br><br><br><br>
-                 您的数据将会被上传到安全保密的实验数据库，仅作科研用途<br>
+                 本实验的目的是想让您了解并体验一种心理咨询的方法：叙事疗法<br><br>请保证周围环境安静并用心思考作答,相信您会藉此体会到叙事疗法的乐趣。<br><br><br><br><br><br><br><br><br><br>
+                 您的数据将会被上传到安全保密的实验数据库，仅作科研用途<br><br>
                  感谢您参与我们的实验，如果您准备好了,请按<span style ="color: red">任意键</span>开始实验吧!</p>
+                  `
+     }
+
+     let protest1 = {
+      type: jsPsychSurveyText,
+      preamble: '首先,请填写以下问卷',
+      questions: [
+       {prompt: '1.最近,最困扰您的问题是：',rows:2,columns:100},
+       {prompt: '2.可以详细聊聊吗?', rows:6,columns:100},
+       {prompt: '3.每次出现这个问题,您内心都会产生怎样的感受呢?', rows:6,columns:100},
+        ],          
+        button_label : '继续',
+     }
+
+     let protest2 = {
+      type: jsPsychSurveyMultiChoice,
+      preamble: '请选择：',
+      questions: [
+      {
+      prompt: "1.现在,您的心情如何？(1~10程度逐渐升高,1是极其低落,10是非常愉悦)",                                                
+      name: 'mood', 
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+      required: true,
+      horizontal: true
+      },
+      {
+      prompt: "2.假设这个问题再次出现,您有多大把握可以成功解决它或者将它的影响降到最低？(1~10程度逐渐升高,1是完全无望,10是很有信心)", 
+      name: 'confidence', 
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+      required: true,
+      horizontal: true
+      }, 
+       ],
+       button_label : '继续',
+     }
+
+     let illustrate = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p id = illustrate><br><br><br><br><br><br><br><br>我们听过的故事影响着我们的生活，而我们所讲的故事定义了我们自己。
+                  <br><br>您的问题一定给您带来了诸多烦恼吧，现在，请您深呼吸并尽量放松。</span><br><br><br><br><br><br><br>
+                  接下来我们将给您呈现一系列图片来转换您的注意力。<br><br>
+                  请您给每个图片编两个<span style ="color: red">截然不同</span>的故事,每个故事编完之后再总结一下这张图片带给您的感受。<br><br>
+                  不需说出来,请用心体会叙事带来的力量......(按<span style ="color: red">任意键</span>开始)</p>
                   `
      }
 
@@ -29,7 +74,7 @@
          return '<p id ="stim">gekailiang</p>';
      }
     }
-    
-     jsPsych.run([welcome,trial]);
+     
+     jsPsych.run([welcome,protest1,protest2,illustrate]);
 </script>
 </html>

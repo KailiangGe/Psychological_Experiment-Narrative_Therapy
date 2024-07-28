@@ -1,3 +1,4 @@
+/* flexbox容器 */
 body {
     display: flex;
     justify-content: center;
@@ -7,12 +8,79 @@ body {
     width: 100vw;
     margin: 0;
 }
+#jspsych-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
 
+/* 欢迎界面 */
 #welcome {
     color : black;
     justify-content: center;
     align-items: center;
     background-color: white;
-    font: size 10px;
+    font-size:  20px;
+    height: 600px;
+}
+
+/* 问卷1界面 */
+#jspsych-survey-text-preamble {
+    color : black;
+    background-color: white;
+    font-size:  30px;
+    font-weight: bold;
+    height: 50px;
+}
+.jspsych-survey-text{
+    text-align: left;
+    margin: 5px;
+}
+#input-0{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  15px;
+}
+#input-1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  15px;
+}
+#input-2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  15px;
+}
+/* <p class="jspsych-survey-multi-choice-text survey-multi-choice">现在,您的心情如何？(程度从低到高,1是极其低落,10是非常愉悦)<span class="required">*</span></p> */
+/* <p class="jspsych-survey-multi-choice-text survey-multi-choice">现在,您的心情如何？(程度从低到高,1是极其低落,10是非常愉悦)<span class="required">*</span></p> */
+/* <div id="jspsych-survey-multi-choice-1" class="jspsych-survey-multi-choice-question jspsych-survey-multi-choice-horizontal" data-name="mood"><p  */
+/* <div id="jspsych-survey-multi-choice-option-1-0" class="jspsych-survey-multi-choice-option"> */
+/* <div id="jspsych-survey-multi-choice-preamble" class="jspsych-survey-multi-choice-preamble">请选择：</div> */
+/* 选择1界面 */
+#jspsych-survey-multi-choice-preamble{
+    color : black;
+    background-color: white;
+    font-size:  30px;
+    font-weight: bold;
+    height: 50px;
+}
+p.jspsych-survey-multi-choice-text.survey-multi-choice{
+    text-align: left;
+    white-space: wrap;
+}
+.jspsych-survey-multi-choice-option{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 说明界面1 */
+#illustrate{
+    color : black;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size:  20px;
     height: 600px;
 }
