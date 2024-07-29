@@ -1,2 +1,25 @@
-# Psychological_Experiment-Narrative_Therapy
-An experiment for experiencing the Narrative Therapy.
+# 教程:用JsPsych做一个心理学问卷实验
+
+## 介绍
+本教程将指导你如何从零开始使用JsPsych编写一个心理学问卷实验，并使用Flexbox进行布局。
+
+## 目录
+### 1. JsPsych简介
+### 2. 准备工作
+### 3. 实验设计
+### 4. Flexbox布局
+### 5. Git版本控制   
+### 6. 总结   
+
+### 1. JsPsych简介
+JsPsych是一个用于创建和运行心理学实验的JavaScript库。它具有丰富的插件和功能，适用于各种实验设计。目标读者为不熟悉JsPsych的人，教程将详细介绍每一步骤，确保读者能够按照教程完成实验设计。
+
+### 2. 准备工作
+
+### 3. 实验设计
+
+### 4. Flexbox布局
+
+### 5. Git版本控制   
+
+### 6. 总结   
