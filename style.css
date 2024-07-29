@@ -1,4 +1,4 @@
-/* flexbox容器 */
+/* 定义页面和刺激的flexbox属性 */
 body {
     display: flex;
     justify-content: center;
@@ -20,14 +20,14 @@ body {
 }
 
 /* 欢迎界面 */
-#welcome {
+/* #welcome {
     color : black;
     justify-content: center;
     align-items: center;
     background-color: white;
     font-size:  20px;
     height: 600px;
-}
+} */
 
 /* 问卷1界面 */
 #jspsych-survey-text-preamble {
@@ -53,11 +53,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size:  15px;
 }
-/* <p class="jspsych-survey-multi-choice-text survey-multi-choice">现在,您的心情如何？(程度从低到高,1是极其低落,10是非常愉悦)<span class="required">*</span></p> */
-/* <p class="jspsych-survey-multi-choice-text survey-multi-choice">现在,您的心情如何？(程度从低到高,1是极其低落,10是非常愉悦)<span class="required">*</span></p> */
-/* <div id="jspsych-survey-multi-choice-1" class="jspsych-survey-multi-choice-question jspsych-survey-multi-choice-horizontal" data-name="mood"><p  */
-/* <div id="jspsych-survey-multi-choice-option-1-0" class="jspsych-survey-multi-choice-option"> */
-/* <div id="jspsych-survey-multi-choice-preamble" class="jspsych-survey-multi-choice-preamble">请选择：</div> */
+ 
 /* 选择1界面 */
 #jspsych-survey-multi-choice-preamble{
     color : black;
@@ -75,7 +71,7 @@ p.jspsych-survey-multi-choice-text.survey-multi-choice{
     flex-wrap: wrap;
 }
 
-/* 说明界面1 */
+/* 说明1界面 */
 #illustrate{
     color : black;
     justify-content: center;
@@ -84,3 +80,28 @@ p.jspsych-survey-multi-choice-text.survey-multi-choice{
     font-size:  20px;
     height: 600px;
 }
+
+/* 问卷2界面 */
+#Post_test_premble {
+    color : black;
+    background-color: white;
+    font-size:  20px;
+    font-weight: bold;
+    height: 50px;
+}
+#input-3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  15px;
+}
+
+/* 选择2界面 */
+#Post_test2_preamble{
+    color : black;
+    background-color: white;
+    font-size:  20px;
+    font-weight: bold;
+    height: 50px;
+    position: relative;
+    bottom: 100px;
+}
+
