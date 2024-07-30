@@ -594,11 +594,9 @@ h1 {
 
 注意：`#`用来选择某ID，`.`用来选择某Class.
 
-具体的控制代码可以在下面的网站中翻找：[www.w3school.com.cn](www.w3school.com.cn)
+更多的控制方法可以在下面的网站中翻找：[www.w3school.com.cn](www.w3school.com.cn)，这里只是做一个示范
 
-这里只是做一个示例
-
-在style.css中打出如下代码来选择并定义实验的样式：
+在style.css文件中打出如下代码来选择对应元素并修改实验的样式：
 
 ```
 /* 定义页面和刺激的flexbox属性 */
