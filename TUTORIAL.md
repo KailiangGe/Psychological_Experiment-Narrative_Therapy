@@ -1,5 +1,5 @@
 # 心理学实验程序教程
-## 目录
+# 目录
 
 ### 开始：介绍jspsych
 ### 第一步：设置HTML页面结构
@@ -10,10 +10,11 @@
 ### 第六步：创建叙事疗法引导页面 ##
 ### 第七步：创建叙事疗法任务 ##
 ### 第八步：创建后测问卷和结束界面 ##
-### 完整代码 ##
+### 完整的.html文件代码 ##
+### 用CSS添加样式 ###
 
-## 正文
-## 介绍jspsych
+# 正文
+## 开始：介绍jspsych
 
 ### 1.什么是 jsPsych？
 
@@ -46,8 +47,10 @@
 3. **利用社区资源**：加入 `jsPsych` 的社区论坛或邮件列表，利用社区的资源来解决遇到的问题。社区中的其他研究人员和开发者常常能够提供有价值的帮助和建议。
 4. **测试跨浏览器兼容性**：在实验设计完成后，确保在不同的浏览器和设备上进行测试，以确保实验的兼容性和稳定性。
 
-### 好了，接下来我们试一下创建我们的第一个jspsych实验：
-     首先，确保您的电脑安装了代码编辑器：Visual studio Code，然后我们开始吧！
+### 好了，接下来我们试一下创建jspsych实验程序吧！
+
+首先，确保您的电脑安装了代码编辑器：Visual studio Code，然后我们开始吧！
+
 ## 第一步：设置HTML页面结构
 
 首先，我们需要创建一个HTML文件，这是我们网页的基础结构。这个文件将包含所有的实验内容。
@@ -350,7 +353,7 @@ jsPsych是一个用于创建心理学实验的JavaScript库。我们需要将jsP
      };
 ```
 
-## 完整代码 ##
+## 完整的.html文件代码 ##
 最后，再加上按时间线运行的语句：Run使得实验可以跑起来，下面是将所有部分组合在一起的完整HTML代码：
 ```
 <!DOCTYPE html>
@@ -506,3 +509,208 @@ jsPsych是一个用于创建心理学实验的JavaScript库。我们需要将jsP
 </script>
 </html>
 ```
+## 用CSS添加样式 ##
+
+### 1.什么是 CSS？
+
+**CSS**（层叠样式表，Cascading Style Sheets）是一种用于描述 HTML 或 XML 文档（包括 SVG 和 XHTML）的样式的语言。CSS 控制网页的视觉呈现和布局，使得开发者可以在不改变文档结构的情况下调整其样式和布局。
+
+### 2.CSS 的基本概念
+
+1. **选择器**：选择器用于选择 HTML 元素，以便对这些元素应用样式。常见的选择器包括元素选择器（如 `p`）、类选择器（如 `.class-name`）、ID 选择器（如 `#id-name`）等。
+
+2. **属性和属性值**：CSS 样式由属性和属性值组成。属性定义了要应用的样式，属性值则指定了样式的具体内容。例如，`color: red;` 这段 CSS 代码设置了文本颜色为红色。
+
+3. **规则集**：CSS 规则集由选择器和声明块组成。声明块包含一个或多个属性和属性值对。规则集的语法如下：
+   ```css
+   selector {
+       property: value;
+       property: value;
+   }
+   ```
+
+4. **层叠和继承**：CSS 的 "层叠" 和 "继承" 特性使得样式可以层叠和继承。例如，如果某个元素的特定样式没有被定义，它将会继承其父元素的样式。
+
+### 3.CSS 的基本语法
+
+CSS 规则的基本语法如下：
+
+```css
+selector {
+    property: value;
+}
+```
+
+### 示例
+
+```css
+/* 选择所有的 <h1> 元素 */
+h1 {
+    color: blue; /* 设置文本颜色为蓝色 */
+    font-size: 24px; /* 设置字体大小为 24 像素 */
+}
+
+/* 选择所有具有 class="highlight" 的元素 */
+.highlight {
+    background-color: yellow; /* 设置背景颜色为黄色 */
+    font-weight: bold; /* 设置字体加粗 */
+}
+
+/* 选择 ID 为 "header" 的元素 */
+#header {
+    text-align: center; /* 设置文本居中对齐 */
+}
+```
+
+### 4.CSS 的优点
+
+1. **分离内容和样式**：CSS 允许将文档的内容（HTML）与样式（CSS）分开，使得文档的结构更加清晰和易于维护。
+
+2. **提高重用性**：通过定义样式类，可以在多个页面中重用相同的样式，提高了代码的重用性和一致性。
+
+3. **响应式设计**：CSS 支持响应式设计，通过媒体查询（media queries）可以创建适应不同设备和屏幕尺寸的布局。
+
+4. **提升用户体验**：CSS 提供了丰富的视觉效果，如动画、过渡效果等，可以显著提升用户体验。
+
+## CSS 的缺点
+
+1. **浏览器兼容性**：不同浏览器可能对 CSS 的支持程度有所不同，这可能导致跨浏览器显示不一致的问题。
+
+2. **学习曲线**：虽然 CSS 基础易学，但高级特性和复杂布局可能需要较长的学习时间。
+
+3. **性能问题**：大量的 CSS 规则和复杂的样式可能会影响网页的渲染性能。
+
+### 5.使用建议
+
+1. **使用外部样式表**：将 CSS 样式放在外部样式表中，而不是嵌入到 HTML 文件中，这样可以提高代码的可维护性和重用性。
+
+2. **利用现代 CSS 特性**：使用 Flexbox 和 Grid 布局来创建响应式和灵活的布局，这些特性可以简化复杂的布局问题。
+
+3. **编写可维护的代码**：遵循命名规范，保持 CSS 代码整洁和有序，便于团队协作和后期维护。
+
+4. **测试跨浏览器兼容性**：确保在不同的浏览器和设备上测试样式，确保网页在各种环境下的正常显示。
+
+### 6.编写CSS样式表`style.css`文件
+
+注意：`#`用来选择某ID，`.`用来选择某Class.
+
+具体的控制代码可以在下面的网站中翻找：[www.w3school.com.cn](www.w3school.com.cn)
+
+这里只是做一个示例
+
+在style.css中打出如下代码来选择并定义实验的样式：
+
+```
+/* 定义页面和刺激的flexbox属性 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+#jspsych-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+/* 欢迎界面 */
+/* #welcome {
+    color : black;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size:  20px;
+    height: 600px;
+} */
+
+/* 问卷1界面 */
+#jspsych-survey-text-preamble {
+    color : black;
+    background-color: white;
+    font-size:  30px;
+    font-weight: bold;
+    height: 50px;
+}
+.jspsych-survey-text{
+    text-align: left;
+    margin: 5px;
+}
+#input-0{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  15px;
+}
+#input-1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  15px;
+}
+#input-2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  15px;
+}
+ 
+/* 选择1界面 */
+#jspsych-survey-multi-choice-preamble{
+    color : black;
+    background-color: white;
+    font-size:  30px;
+    font-weight: bold;
+    height: 50px;
+}
+p.jspsych-survey-multi-choice-text.survey-multi-choice{
+    text-align: left;
+    white-space: wrap;
+}
+.jspsych-survey-multi-choice-option{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 说明1界面 */
+#illustrate{
+    color : black;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size:  20px;
+    height: 600px;
+}
+
+/* 问卷2界面 */
+#Post_test_premble {
+    color : black;
+    background-color: white;
+    font-size:  20px;
+    font-weight: bold;
+    height: 50px;
+}
+#input-3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  15px;
+}
+
+/* 选择2界面 */
+#Post_test2_preamble{
+    color : black;
+    background-color: white;
+    font-size:  20px;
+    font-weight: bold;
+    height: 50px;
+    position: relative;
+    bottom: 100px;
+}
+```
+
+
+
+
+
+
