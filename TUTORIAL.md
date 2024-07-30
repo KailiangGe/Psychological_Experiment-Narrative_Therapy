@@ -1,10 +1,58 @@
 # 心理学实验程序教程
+## 目录
 
+### 开始：介绍jspsych
+### 第一步：设置HTML页面结构
+### 第二步：引入jsPsych库
+### 第三步：初始化jsPsych ##
+### 第四步：创建欢迎界面 ##
+### 第五步：创建前测问卷 ##
+### 第六步：创建叙事疗法引导页面 ##
+### 第七步：创建叙事疗法任务 ##
+### 第八步：创建后测问卷和结束界面 ##
+### 完整代码 ##
+
+## 正文
+## 介绍jspsych
+
+### 1.什么是 jsPsych？
+
+`jsPsych` 是一个 JavaScript 库，专门用于创建和管理在线心理学实验。它提供了一套全面的工具和插件，使得研究人员可以方便地设计复杂的心理学实验，并且在网页上运行这些实验。`jsPsych` 支持多种实验设计，包括反应时间测量、调查问卷、视觉和听觉刺激展示等。
+
+### 2.jsPsych 的主要功能
+
+- **灵活的实验设计**：允许用户创建各种类型的实验任务，包括调查问卷、反应时间任务和多媒体刺激任务。
+- **插件系统**：提供了许多插件来处理不同类型的任务，如文本调查、图片展示、键盘响应等。用户还可以自定义插件以满足特定需求。
+- **数据收集和分析**：内置的数据收集功能，可以将实验数据保存为 JSON 格式，便于后续分析。
+- **兼容性**：支持在大多数现代浏览器中运行，包括桌面和移动设备。
+
+### 3.优点
+
+1. **易于使用**：`jsPsych` 提供了高层次的抽象，使得实验设计更加简单。即使没有深厚的编程背景，用户也可以快速上手。
+2. **开源和免费**：`jsPsych` 是一个开源项目，用户可以自由使用和修改源码，同时享受社区支持。
+3. **文档和社区支持**：提供了详细的文档和示例代码，社区也非常活跃，有助于解决在使用过程中遇到的问题。
+4. **高度可定制**：用户可以根据实验需要自定义插件，或编写自己的插件来扩展 `jsPsych` 的功能。
+
+### 4.缺点
+
+1. **学习曲线**：虽然基础功能易于上手，但对于复杂的实验任务，用户可能需要深入了解 `jsPsych` 的内部机制和插件系统。
+2. **性能问题**：对于非常复杂的实验或大量的数据收集，`jsPsych` 可能会出现性能问题。尤其是在移动设备上，渲染和响应速度可能较慢。
+3. **浏览器兼容性**：虽然 `jsPsych` 兼容大多数现代浏览器，但在某些旧版浏览器或不常见的浏览器中，可能会遇到兼容性问题。
+
+### 5.使用建议
+
+1. **开始之前阅读文档**：在开始使用 `jsPsych` 之前，建议详细阅读其 [官方文档](https://www.jspsych.org/) 和 [示例代码](https://www.jspsych.org/examples/)，以了解基本概念和常用功能。
+2. **逐步构建实验**：从简单的实验任务开始，逐步添加复杂的功能。这样可以逐步掌握 `jsPsych` 的使用技巧，并减少调试的难度。
+3. **利用社区资源**：加入 `jsPsych` 的社区论坛或邮件列表，利用社区的资源来解决遇到的问题。社区中的其他研究人员和开发者常常能够提供有价值的帮助和建议。
+4. **测试跨浏览器兼容性**：在实验设计完成后，确保在不同的浏览器和设备上进行测试，以确保实验的兼容性和稳定性。
+
+### 好了，接下来我们试一下创建我们的第一个jspsych实验：
+     首先，确保您的电脑安装了代码编辑器：Visual studio Code，然后我们开始吧！
 ## 第一步：设置HTML页面结构
 
 首先，我们需要创建一个HTML文件，这是我们网页的基础结构。这个文件将包含所有的实验内容。
 
-### 1. 创建基本的HTML文件
+### 创建基本的HTML文件
 
 1. 打开一个文本编辑器（如Notepad、Sublime Text或Visual Studio Code）。
 2. 创建一个新文件，保存为 `index.html`。
@@ -254,7 +302,134 @@ jsPsych是一个用于创建心理学实验的JavaScript库。我们需要将jsP
 最后，我们创建一个后测问卷和结束界面，感谢参与者并告知他们实验结束。这部分和前测问卷与说明界面用到的插件一样，实现方法参考前面这两个部分。
 代码如下：
 ```
+   /* 后测问卷 */
+     var Post_test1 = {
+      type: jsPsychSurveyText,
+      preamble: '<p id = Post_test_premble>叙事是一种力量,找到新的叙事,您就找到了新的力量源泉,也就有了解决问题的资源。下面,请仔细思考下面的问题:</p>',
+      questions: [
+       {prompt: '1.如果要给您的问题给一个命名,根据它带来的感受,您会把它命名成:(比如:小房间、瘪掉的气球、大黑狗等等)',rows:1,columns:120},
+       {prompt: '2.问什么给予它这个名字,您能详细地定义一下它么?', rows:2,columns:120},
+       {prompt: '3.结合前面叙事的经验,请问您可以从另一个角度来描述自己的问题吗?', rows:6,columns:120},
+       {prompt: '4.如此,结合您以前成功经验,您觉得这个问题可以从哪些角度尝试着解决呢?', rows:6,columns:120},
+        ],          
+        button_label : '继续',
+     };
+
+     /* 后测指标 */
+     var Post_test2 = {
+      type: jsPsychSurveyMultiChoice,
+      preamble: '<p id = Post_test2_preamble><span style = "color: red">恭喜您!</span><br><br>通过对叙事疗法的了解和一些的简单训练,您对您的问题又有了新的见解。在面对问题时,请带着这份知识和见解冷静地思考对策吧！<br><br>最后,请再做一次下面的选择:</p>',
+      questions: [
+      {
+      prompt: "1.现在,您的心情如何？(1~10程度逐渐升高,1是极其低落,10是非常愉悦)",                                                
+      name: 'mood2', 
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+      required: true,
+      horizontal: true
+      },
+      {
+      prompt: "2.假设这个问题再次出现,您有多大把握可以成功解决它或者将它的影响降到最低？(1~10程度逐渐升高,1是完全无望,10是很有信心)", 
+      name: 'confidence2', 
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+      required: true,
+      horizontal: true
+      }, 
+       ],
+       button_label : '继续',
+     };
+
+     /* 结束界面 */
+     var end = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p id = end><span style = "color:red;font-size:50px;align-items: center;"><br><br>感谢您的参与!</span><br><br><br><br><br><br><br>
+                 <span style ="font-weight:bold">叙事是每个人都会的技能,发现叙事的力量并利用它,能够将我们自己抽身于问题之外,我们的人生就会有无限种可能。</span>
+                 <br><br><br><br><br><br><br><br><br><br>叙事疗法的经典书籍:《叙事治疗的力量：故事、知识、权力》——作者: [澳] 迈克尔·怀特 / [新西兰] 戴维·爱普斯顿<br>
+                 如果有任何问题,欢迎与主试交流:kailiangge@yeah.net</p>
+                  `,
+      choices: "NO_KEYS",
+     };
+```
+
+## 完整代码 ##
+最后，再加上按时间线运行的语句：Run使得实验可以跑起来，下面是将所有部分组合在一起的完整HTML代码：
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心理学实验：叙事疗法的魔力</title><!-- 初始化html -->
+    <script src="./jspsych/jspsych.js"></script>
+    <script src="./jspsych/plugin-html-keyboard-response.js"></script>
+    <script src="./jspsych/plugin-survey-text.js"></script>
+    <script src="./jspsych/plugin-survey-multi-choice.js"></script>
+    <script src="./jspsych/plugin-preload.js"></script>
+    <script src="./jspsych/plugin-image-keyboard-response.js"></script><!-- 初始化jspsych -->
+    <link href="./jspsych/jspsych.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./style.css"> <!-- 初始化CSS文件 -->
+</head>
+<body></body>
 <script>
+     const jsPsych = initJsPsych();/* 初始化jsPsych */
+     
+     /* 欢迎界面 */
+     var welcome = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p id = end><span style = "color:red;font-size:50px;align-items: center;"><br><br>欢迎参加本次心理学实验</span><br><br><br><br><br><br>
+                 <span style ="font-weight:bold">本实验的目的是想让您了解并体验一种心理咨询的方法：叙事疗法<br><br>请保证周围环境安静并用心思考作答,相信您会藉此体会到叙事疗法的乐趣。</span><br><br><br><br><br><br><br><br><br>您的数据将会被上传到安全保密的实验数据库，仅作科研用途<br>
+                 感谢您参与我们的实验，如果您准备好了,请按<span style ="color: red">任意键</span>开始实验吧!</p>
+                  `
+     };
+
+     /* 前测问卷 */
+     var pretest1 = {
+      type: jsPsychSurveyText,
+      preamble: '首先,请填写以下问卷',
+      questions: [
+       {prompt: '1.最近,最困扰您的问题是：',rows:2,columns:100},
+       {prompt: '2.可以详细聊聊吗?', rows:6,columns:100},
+       {prompt: '3.每次出现这个问题,您内心都会产生怎样的感受呢?', rows:6,columns:100},
+        ],          
+        button_label : '继续',
+     };
+
+     /* 前测指标 */
+     var pretest2 = {
+      type: jsPsychSurveyMultiChoice,
+      preamble: '请选择：',
+      questions: [
+      {
+      prompt: "1.现在,您的心情如何？(1~10程度逐渐升高,1是极其低落,10是非常愉悦)",                                                
+      name: 'mood1', 
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+      required: true,
+      horizontal: true
+      },
+      {
+      prompt: "2.假设这个问题再次出现,您有多大把握可以成功解决它或者将它的影响降到最低？(1~10程度逐渐升高,1是完全无望,10是很有信心)", 
+      name: 'confidence1', 
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+      required: true,
+      horizontal: true
+      }, 
+       ],
+       button_label : '继续',
+     };
+
+     /* 实验的说明 */
+     var illustrate = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p id = illustrate><br><br><br><br><br><br><br><br><span style ="font-weight:bold">我们听过的故事影响着我们的生活，而我们所讲的故事定义了我们自己。
+                  <br><br>您的问题一定给您带来了诸多烦恼吧，现在，请您深呼吸并尽量放松。</span><br><br><br><br><br>
+                  接下来我们将给您呈现一系列图片来转换您的注意力。<br>
+                  请您给每个图片编<span style ="color: red">两个截然不同</span>的故事。<br><br>
+                  每个故事编完之后再总结一下这张图片给您的感受吧!<br><br><br>
+                  不需说出来,请用心体会叙事带来的力量......<br>
+                  (按<span style ="color: red">任意键</span>开始)</p>
+                  `
+     };
+
+     /* 进行实验 */
      var preload = {
       type: jsPsychPreload,
       auto_preload: true
@@ -277,98 +452,57 @@ jsPsych是一个用于创建心理学实验的JavaScript库。我们需要将jsP
      stimulus_width:800,
      prompt:'<p>按空格键继续</p>'
      };
+
+    /* 后测问卷 */
+     var Post_test1 = {
+      type: jsPsychSurveyText,
+      preamble: '<p id = Post_test_premble>叙事是一种力量,找到新的叙事,您就找到了新的力量源泉,也就有了解决问题的资源。下面,请仔细思考下面的问题:</p>',
+      questions: [
+       {prompt: '1.如果要给您的问题给一个命名,根据它带来的感受,您会把它命名成:(比如:小房间、瘪掉的气球、大黑狗等等)',rows:1,columns:120},
+       {prompt: '2.问什么给予它这个名字,您能详细地定义一下它么?', rows:2,columns:120},
+       {prompt: '3.结合前面叙事的经验,请问您可以从另一个角度来描述自己的问题吗?', rows:6,columns:120},
+       {prompt: '4.如此,结合您以前成功经验,您觉得这个问题可以从哪些角度尝试着解决呢?', rows:6,columns:120},
+        ],          
+        button_label : '继续',
+     };
+
+     /* 后测指标 */
+     var Post_test2 = {
+      type: jsPsychSurveyMultiChoice,
+      preamble: '<p id = Post_test2_preamble><span style = "color: red">恭喜您!</span><br><br>通过对叙事疗法的了解和一些的简单训练,您对您的问题又有了新的见解。在面对问题时,请带着这份知识和见解冷静地思考对策吧！<br><br>最后,请再做一次下面的选择:</p>',
+      questions: [
+      {
+      prompt: "1.现在,您的心情如何？(1~10程度逐渐升高,1是极其低落,10是非常愉悦)",                                                
+      name: 'mood2', 
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+      required: true,
+      horizontal: true
+      },
+      {
+      prompt: "2.假设这个问题再次出现,您有多大把握可以成功解决它或者将它的影响降到最低？(1~10程度逐渐升高,1是完全无望,10是很有信心)", 
+      name: 'confidence2', 
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+      required: true,
+      horizontal: true
+      }, 
+       ],
+       button_label : '继续',
+     };
+
+     /* 结束界面 */
+     var end = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p id = end><span style = "color:red;font-size:50px;align-items: center;"><br><br>感谢您的参与!</span><br><br><br><br><br><br><br>
+                 <span style ="font-weight:bold">叙事是每个人都会的技能,发现叙事的力量并利用它,能够将我们自己抽身于问题之外,我们的人生就会有无限种可能。</span>
+                 <br><br><br><br><br><br><br><br><br><br>叙事疗法的经典书籍:《叙事治疗的力量：故事、知识、权力》——作者: [澳] 迈克尔·怀特 / [新西兰] 戴维·爱普斯顿<br>
+                 如果有任何问题,欢迎与主试交流:kailiangge@yeah.net</p>
+                  `,
+      choices: "NO_KEYS",
+     };
+
+     /* 按时间线运行 */
+     jsPsych.run([welcome,pretest1,pretest2,illustrate, preload, image1,image2,Post_test1,Post_test2,end]);
+
+</script>
+</html>
 ```
-## 九、完整代码 ##
-下面是将所有部分组合在一起的完整HTML代码：
-
-html
-复制代码
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>心理学实验：叙事疗法的魔力</title>
-    <!-- 引入jsPsych库 -->
-    <script src="./jspsych/jspsych.js"></script>
-    <!-- 引入jsPsych插件 -->
-    <script src="./jspsych/plugins/jspsych-html-keyboard-response.js"></script>
-    <script src="./jspsych/plugins/jspsych-survey-text.js"></script>
-    <script src="./jspsych/plugins/jspsych-survey-multi-choice.js"></script>
-    <script src="./jspsych/plugins/jspsych-preload.js"></script>
-    <script src="./jspsych/plugins/jspsych-image-keyboard-response.js"></script>
-    <!-- 引入jsPsych样式表 -->
-    <link href="./jspsych/css/jspsych.css" rel="stylesheet" type="text/css">
-    <!-- 引入自定义样式表 -->
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-<script>
-    const jsPsych = initJsPsych(); // 初始化jsPsych
-
-    // 欢迎界面
-    var welcome = {
-        type: jsPsychHtmlKeyboardResponse,
-        stimulus: `<p id="end"><span style="color:red;font-size:50px;align-items: center;"><br><br>欢迎参加本次心理学实验</span><br><br><br><br><br><br>
-                   <span style="font-weight:bold">本实验的目的是想让您了解并体验一种心理咨询的方法：叙事疗法<br><br>请保证周围环境安静并用心思考作答,相信您会藉此体会到叙事疗法的乐趣。</span><br><br><br><br><br><br><br><br><br>您的数据将会被上传到安全保密的实验数据库，仅作科研用途<br>
-                   感谢您参与我们的实验，如果您准备好了,请按<span style="color: red">任意键</span>开始实验吧!</p>`
-    };
-
-    // 前测问卷文本部分
-    var pretest1 = {
-        type: jsPsychSurveyText,
-        preamble: '首先,请填写以下问卷',
-        questions: [
-            {prompt: '1.最近,最困扰您的问题是：', rows: 2, columns: 100},
-            {prompt: '2.可以详细聊聊吗?', rows: 6, columns: 100},
-            {prompt: '3.每次出现这个问题,您内心都会产生怎样的感受呢?', rows: 6, columns: 100},
-        ],
-        button_label: '继续',
-    };
-
-    // 前测问卷选择题部分
-    var pretest2 = {
-        type: jsPsychSurveyMultiChoice,
-        preamble: '请选择：',
-        questions: [
-            {
-                prompt: "1.现在,您的心情如何？(1~10程度逐渐升高,1是极其低落,10是非常愉悦)",
-                name: 'mood1', 
-                options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-                required: true
-            },
-            {
-                prompt: "2.最近一周,您内心的压力感受如何？(1~10程度逐渐升高,1是没有压力,10是非常大的压力)",
-                name: 'stress1', 
-                options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-                required: true
-            }
-        ],
-        button_label: '继续'
-    };
-
-    // 叙事疗法引导页面
-    var narrative_intro = {
-        type: jsPsychHtmlKeyboardResponse,
-        stimulus: `<p id="end"><span style="color:red;font-size:50px;align-items: center;"><br><br>叙事疗法</span><br><br><br><br><br><br>
-                   <span style="font-weight:bold">请您回想一个令您感到困扰的经历，并尝试通过叙述这个经历来理解和面对它。</span><br><br><br><br><br><br><br><br><br>
-                   如果您准备好了,请按<span style="color: red">任意键</span>继续。</p>`
-    };
-
-    // 叙事疗法任务
-    var narrative_task = {
-        type: jsPsychSurveyText,
-        preamble: '请描述您的经历',
-        questions: [
-            {prompt: '请详细描述这段经历。', rows: 10, columns: 100},
-            {prompt: '在这个经历中，您感受到了什么？', rows: 6, columns: 100},
-            {prompt: '您认为这段经历对您的生活产生了什么影响？', rows: 6, columns: 100}
-        ],
-        button_label: '提交'
-    };
-
-    // 结束页面
-    var end = {
-        type: jsPsychHtmlKeyboardResponse,
-        stimulus: `<p id="end"><span style="color:red;font-size:50px;align-items: center;"><br><br>实验结束</span><br><br><br><br><br><br>
-                   <span style="font-weight:bold">感谢您的参与
